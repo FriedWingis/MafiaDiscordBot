@@ -1,0 +1,16 @@
+{
+    "token": "Nzg4MDk0Mzk1MTE0MDYxODQ0.Gpwnmw._fwXM5p7gC6Nm-vHQJhaugJgpa8yBPh6cO3WqM",
+    "color": "#000000",
+    "footer": "© 2023 - TheMafia & FriedWingis#0420",
+    "clientID": "788094395114061844",
+    "guildID": "928390531946520636",
+
+    "channels": {
+        "welcome": "941212405692768279",
+        "logs": "1027042588924055582"
+    },
+
+    "roles": {
+        "moderator": "1063652953099087963"
+    }
+}
