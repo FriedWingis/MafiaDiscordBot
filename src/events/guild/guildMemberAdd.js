@@ -13,7 +13,7 @@ module.exports = {
     const rGif = gifs[Math.floor(Math.random() * gifs.length)];
 
     const embed = new EmbedBuilder()
-      .setTitle(`Welcome to TheMafia, ${member.user.username}!`)
+      .setTitle(`**Welcome to TheMafia, ${member.user.username}!**`)
       .setDescription(
         "We are a community Discord server where everyone is treated like family. Featuring **giveaways**, plenty of **voice channels**, free PPV fight **live-streams**, and more! You are an official member of **TheMafia** and we hope you enjoy your stay :)"
       )

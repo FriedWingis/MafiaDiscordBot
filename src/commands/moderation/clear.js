@@ -1,8 +1,4 @@
-const {
-  SlashCommandBuilder,
-  PermissionFlagsBits,
-  EmbedBuilder,
-} = require("discord.js");
+const { SlashCommandBuilder, EmbedBuilder } = require("discord.js");
 
 module.exports = {
   data: new SlashCommandBuilder()
@@ -30,10 +26,15 @@ module.exports = {
     });
 
     if (!member.roles.cache.has(config.roles.moderator)) {
-        return await interaction.reply({
-            embeds: [embed.setDescription("You do not have permission to use this command.")],
-            ephemeral: true,
-        });
+      return await interaction.reply({
+        embeds: [
+          embed.setDescription(
+            "You do not have permission to use this command."
+          ),
+        ],
+        
+        ephemeral: true,
+      });
     }
 
     const amount = options.getInteger("amount");
@@ -44,29 +45,37 @@ module.exports = {
     });
 
     if (target) {
-        let i = 0;
-        const filtered = [];
+      let i = 0;
+      const filtered = [];
 
-        (await messages).filter((msg) => {
-            if (msg.author.id === target.id && amount > i) {
-                filtered.push(msg);
-                i++;
-            }
-        });
+      (await messages).filter((msg) => {
+        if (msg.author.id === target.id && amount > i) {
+          filtered.push(msg);
+          i++;
+        }
+      });
 
-        await channel.bulkDelete(filtered).then(messages => {
-            return interaction.reply({
-                embeds: [embed.setDescription(`Successfully deleted ${messages.size} messages from ${target}.`)],
-                ephemeral: true,
-            });
+      await channel.bulkDelete(filtered).then((messages) => {
+        return interaction.reply({
+          embeds: [
+            embed.setDescription(
+              `Successfully deleted ${messages.size} messages from ${target}.`
+            ),
+          ],
+          ephemeral: true,
         });
+      });
     } else {
-        await channel.bulkDelete(amount, true).then(messages => {
-            return interaction.reply({
-                embeds: [embed.setDescription(`Successfully deleted ${messages.size} messages from this channel.`)],
-                ephemeral: true,
-            });
+      await channel.bulkDelete(amount, true).then((messages) => {
+        return interaction.reply({
+          embeds: [
+            embed.setDescription(
+              `Successfully deleted ${messages.size} messages from this channel.`
+            ),
+          ],
+          ephemeral: true,
         });
+      });
     }
   },
 };
